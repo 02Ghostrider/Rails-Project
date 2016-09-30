@@ -3,6 +3,8 @@
 <ul><% @tag.articles.each do |article| %>
     <li><%= link_to article.title, article_path(article) %></li>
 	<% end %></ul>
+<% if logged_in? %>
 <%= link_to "Tag list", tags_path %>
 <%= link_to "Delete tag", tag_path(@tag), method: :delete, data: {confirm: "Really delete the tag " + tag_path(@tag) + "?"} %>
 <p><%= link_to "<< Back to Articles List", articles_path %></p>
+<% end %>
